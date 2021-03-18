@@ -108,3 +108,25 @@ class TestApp(unittest.TestCase):
         print(result)
         self.assertLessEqual(result[0], 1)
 
+    def test_02_SitiNPujaKesuma_1184004(self):
+        from Chapter01.SitiNPujaKesuma_1184004 import zoo,latihan,percobaan
+        #data
+        data = zoo()
+        #train data
+        train = data.pop(0)
+        animal_train_att = train.pop(0)
+        animal_train_type = train.pop(0)
+        #test data
+        test = data.pop(0)
+        animal_test_att = test.pop(0)
+        animal_test_type = test.pop(0)
+        #training
+        t = latihan(animal_train_att, animal_train_type)
+        #predict
+        result = percobaan(t,animal_test_att)
+        print("result : ")
+        print(result)
+        self.assertLessEqual(result[0], 1)
+
+A = TestApp()
+A.test_02_SitiNPujaKesuma_1184004()
