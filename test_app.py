@@ -241,9 +241,9 @@ class TestApp(unittest.TestCase):
         print("Maka yang di approve adalah : ")
         print(result)
         self.assertGreaterEqual(result[0],1)
+        
     def test_02_EtikaKhusnulLaeli_1184065(self):
         from Chapter01.Etika1184065 import preparation, training, testing
-
         datasetpath = 'Chapter01/dataset/OnlineNewsPopularity.csv'
         # testing function preparation
         d_train_att, d_train_pass, d_test_att, d_test_pass, d_att, d_pass = preparation(datasetpath)
