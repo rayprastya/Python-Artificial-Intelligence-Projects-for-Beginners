@@ -160,25 +160,3 @@ class TestApp(unittest.TestCase):
         print(hasiltestingsemua)
         ambilsatuhasiltesting = hasiltestingsemua[0]
         self.assertLessEqual(ambilsatuhasiltesting, 1)
-
-    def test_02_Sharif_1184044(self):
-        from Chapter01.Sharif1184044 import preparation,training,testing
-        #data
-        data = preparation()
-        #ngetraindata
-        train = data.pop(0)
-        cancer_train_att = train.pop(0)
-        cancer_train_live = train.pop(0)
-        #ngetesdata
-        test = data.pop(0)
-        cancer_test_att = test.pop(0)
-        cancer_test_live = test.pop(0)
-        #training
-        latih = training(cancer_train_att, cancer_train_live)
-        #predict
-        result = testing(latih,cancer_test_att)
-        print("result : ")
-        print(result)
-        self.assertLessEqual(result[0], 1)
-
-
