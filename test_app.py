@@ -240,6 +240,6 @@ class TestApp(unittest.TestCase):
         result = percobaan(t,animal_test_att)
         print("result : ")
         print(result)
-        self.assertLessEqual(result[0], 1)
+        self.assertGreaterEqual(result[0], 1)
 
 
