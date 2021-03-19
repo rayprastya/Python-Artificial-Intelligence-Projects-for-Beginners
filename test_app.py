@@ -161,4 +161,27 @@ class TestApp(unittest.TestCase):
         ambilsatuhasiltesting = hasiltestingsemua[0]
         self.assertLessEqual(ambilsatuhasiltesting, 1)
 
+    def test_02_utari_1184039(self):
+        from Chapter01.utari1184039 import preparation,training,testing
+        #data
+        dataset = preparation()
+        #train data
+        train = dataset.pop(0)
+        data_train_atrbt = train.pop(0)
+        data_train_htfr = train.pop(0)
+        #test data
+        test = dataset.pop(0)
+        data_test_atrbt = test.pop(0)
+        data_test_htfr = test.pop(0)
+        #training
+        x = training(data_train_atrbt, data_train_htfr)
+        #predict
+        hasil = testing(x,data_test_atrbt)
+        print("hasil test : ")
+        print(hasil)
+        self.assertLessEqual(hasil[0], 1)    
+
+a = TestApp()
+a.test_02_utari_1184039()
+
 
