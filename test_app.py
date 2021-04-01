@@ -221,3 +221,100 @@ class TestApp(unittest.TestCase):
         print("hasil testing spam : ")
         print(hasil)
         self.assertLessEqual(hasil[0], 1)
+    
+    def test_02_adityar_1184021(self):
+        from Chapter01.adityar1184021 import preparation, training, testing
+        #datasetpath = 'Chapter01/dataset/kuli_ah_daring.csv'
+        data = preparation()
+
+        train = data.pop(0)
+        d_train_att = train.pop(0)
+        d_train_pass = train.pop(0)
+
+        test = data.pop(0)
+        d_test_att = test.pop(0)
+        d_test_pass = test.pop(0)
+
+        t = training(d_train_att, d_train_pass)
+
+        result = testing(t,d_test_att)
+        print("Maka yang di approve adalah : ")
+        print(result)
+        self.assertGreaterEqual(result[0],1)
+
+    def test_03_dindamajesty_1184011(self):
+        from Chapter02.DindaMajesty1184011 import preparation, training, testing
+
+        datasetpath = 'Chapter01/dataset/mushrooms.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasiltesting = testing(clf, df_test_att.head())
+        # hasil
+        print('\nhasil testing dinda : ')
+        print(hasiltesting)
+        print('Score:', clf.score(df_test_att, df_test_label))
+         
+    def test_03_DyningAida_1184030(self):
+        from Chapter02.DyningAida1184030 import preparation, training, testing
+        dataset = 'Chapter01/dataset/nursery.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(dataset)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasil = testing(clf, df_test_att.head())
+        # hasil testing
+        print('\nhasil testing Batris :', hasil)
+        print('Score:', clf.score(df_test_att, df_test_label))
+ 
+    def test_03_AhmadAgung_1184015(self):
+        from Chapter02.AhmadAgung_1184015 import preparation, training, testing
+
+        datasetpath = 'Chapter01/dataset/connect-4.txt'
+        f_train_att, f_train_label, f_test_att, f_test_label, f_att, f_label = preparation(datasetpath)
+        #testing dari fungsi traning
+        clf = training(f_train_att, f_train_label)
+        #testing dari fungsi testing
+        hasiltesting = testing(clf, f_test_att.head())
+
+        #hasil testing yang dilakukan        
+        print(' testing : ')
+        print(hasiltesting)
+        print('Hasil draw(0) lose(1) win(2)',clf.score(f_test_att, f_test_label))
+
+    def test_03_IdamFadilah_1184063(self):
+        from Chapter02.IdamFadilah1184063 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+
+        t = training(trainAttr, trainVar)
+
+        result = testing(t, testAttr)
+        print('result : ')
+        print(result)
+        print("score : "+ str(t.score(testAttr, testVar)))
+        
+    def test_04_Nurhanifah_1184086(self):
+        from Chapter02.Nurhanifah1184086 import preparation, training, testing
+        dataset = 'Chapter01/dataset/Callt.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(dataset)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasil = testing(clf, df_test_att.head())
+        # hasil testing
+        print('\nhasil testing hanifah :', hasil)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        self.assertLessEqual(hasil[1], 1)
