@@ -5,7 +5,7 @@ def preparation():
     data = pd.read_csv('Chapter01/dataset/lungcancer.txt', sep=',', usecols=[0,1,2,3,4,5,6,7], header=None, names=['age', 'gender', 'chroniccough', 'coughingupblood', 'drasticweightloss', 'chestandbonepain', 'difficultybreathing', 'lungcancer'])
    
     data = data.sample(frac=1)
-    data = [data.iloc[:,:4], data.iloc[:, 4:]]
+    data = [data.iloc[:,:7], data.iloc[:, 7:]]
 
 
     dataAttr = data.pop(0)
