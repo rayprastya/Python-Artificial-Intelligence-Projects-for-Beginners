@@ -339,5 +339,3 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ", t.score(testAttr, testVar))
 
-app = TestApp().test_03_MuhammadWahyuArdiIsmail_1184059()
-app
