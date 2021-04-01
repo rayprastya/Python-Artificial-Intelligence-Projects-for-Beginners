@@ -319,7 +319,7 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasil[1], 1)
 
-   def test_03_Rayhanyl_1184007(self):
+    def test_03_Rayhanyl_1184007(self):
         from Chapter02.Rayhanyl1184007 import preparation, training, testing
         data = preparation()
 
@@ -337,4 +337,7 @@ class TestApp(unittest.TestCase):
         result = testing(t, testAttr)
         print('result : ')
         print(result)
-        print("score : "+ str(t.score(testAttr, testVar)))
+        print("score : ", t.score(testAttr, testVar))
+
+app = TestApp().test_03_Rayhanyl_1184007()
+app

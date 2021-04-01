@@ -8,24 +8,24 @@ def preparation():
     data = [data.iloc[:,:7], data.iloc[:, 7:]]
 
 
-    dataAttr = data.pop(0)
-    dataVar = data.pop(0)
+    data_atribut = data.pop(0)
+    data_var = data.pop(0)
     
 
-    length = int(len(dataVar)*0.75)
+    length = int(len(data_var)*0.75)
 
-    trainVar = dataVar[:length]
-    trainAttr = dataAttr[:length]
+    train_Var = data_var[:length]
+    train_atribut = data_atribut[:length]
 
-    testVar = dataVar[length:]
-    testAttr = dataAttr[length:]
+    test_Var = data_var[length:]
+    test_atribut = data_atribut[length:]
 
-    return [[trainAttr, trainVar], [testAttr, testVar]]
+    return [[train_atribut, train_Var], [test_atribut, test_Var]]
 
-def training(trainAttr, trainVar):
+def training(train_atribut, train_Var):
     t = RandomForestClassifier(max_features=4, random_state=0, n_estimators=100)
-    t = t.fit(trainAttr, trainVar)
+    t = t.fit(train_atribut, train_Var)
     return t
 
-def testing(t, testAttr):
-    return t.predict(testAttr)
+def testing(t, test_atribut):
+    return t.predict(test_atribut)
