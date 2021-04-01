@@ -330,7 +330,7 @@ class TestApp(unittest.TestCase):
         oneresult = allresult[0]
         self.assertLessEqual(oneresult,1)
 
-   def test_03_Rayhanyl_1184007(self):
+    def test_03_Rayhanyl_1184007(self):
         from Chapter02.Rayhanyl1184007 import preparation, training, testing
         data = preparation()
 
