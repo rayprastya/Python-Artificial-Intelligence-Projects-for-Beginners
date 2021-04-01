@@ -337,5 +337,5 @@ class TestApp(unittest.TestCase):
         result = testing(t, testAttr)
         print('result : ')
         print(result)
-        print("Hasil Akurasi : ",)
+        print("score : ",t.score(testAttr, testVar))
 
