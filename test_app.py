@@ -338,6 +338,3 @@ class TestApp(unittest.TestCase):
         print('result : ')
         print(result)
         print("score : ", t.score(testAttr, testVar))
-
-app = TestApp().test_03_Rayhanyl_1184007()
-app
