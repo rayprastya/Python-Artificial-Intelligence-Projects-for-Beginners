@@ -308,9 +308,9 @@ class TestApp(unittest.TestCase):
     def test_03_EtikaKhusnulLaeli_1184065(self):
         from Chapter02.Etika1184065 import preparation, training, testing
 
-        datasetpath = 'Chapter01/dataset/datatraining.txt'
+        dataset = 'Chapter01/dataset/datatraining.txt'
         # testing function preparation
-        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(dataset)
         # testing function training
         clf = training(df_train_att, df_train_label)
         # testing function testing
