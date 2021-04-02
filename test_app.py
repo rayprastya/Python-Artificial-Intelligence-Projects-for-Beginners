@@ -315,11 +315,6 @@ class TestApp(unittest.TestCase):
         clf = training(df_train_att, df_train_label)
         # testing function testing
         hasiltesting = testing(clf, df_test_att.head())
-        # hasil
-        print('\nhasil testing etika : ')
-        print(hasiltesting)
-        print('Score:', clf.score(df_test_att, df_test_label))
-        hasil = testing(clf, df_test_att.head())
         # hasil testing
         print('\nhasil testing hanifah :', hasil)
         print('Score:', clf.score(df_test_att, df_test_label))
