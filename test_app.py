@@ -476,8 +476,8 @@ class TestApp(unittest.TestCase):
 
         t = training(trainAttr, trainVar)
 
-        hasil_testingnya = testing(t, testAttr)
+        hasiltestingnya = testing(t, testAttr)
         print('hasilnya : ')
-        print(hasil_testingnya)
+        print(hasiltestingnya)
         print("score : ", t.score(testAttr, testVar))
-        self.assertLessEqual(hasil_testingnya[0], 1)
+        self.assertLessEqual(hasiltestingnya[0], 1)
