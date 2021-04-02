@@ -381,6 +381,27 @@ class TestApp(unittest.TestCase):
         print(hasiltesting)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasiltesting[0],1)
+    
+    def test_03_Anurutari_1184039(self):
+        from Chapter02.Anurutari1184039 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        trn_Atribut = train.pop(0)
+        trn_Varr = train.pop(0)
+
+        test_Atribut = test.pop(0)
+        test_Varr = test.pop(0)
+
+        t = training(trn_Atribut, trn_Varr)
+
+        hasiltest = testing(t, test_Atribut)
+        print('hasil : ')
+        print(hasiltest)
+        print("score : ", t.score(test_Atribut, test_Varr))
+        self.assertLessEqual(hasiltest[0], 1)
 
     def test_03_SitiNPujaKesuma_1184004(self):
         from Chapter02.SitiNPujaKesuma1184004 import preparation, training, testing
@@ -395,6 +416,7 @@ class TestApp(unittest.TestCase):
         testAttr = test.pop(0)
         testVar = test.pop(0)
 
+
         t = training(trainAttr, trainVar)
 
         result = testing(t, testAttr)
@@ -402,3 +424,4 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0],1)
+
