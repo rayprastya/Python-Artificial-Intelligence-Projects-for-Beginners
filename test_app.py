@@ -349,3 +349,4 @@ class TestApp(unittest.TestCase):
         print('result : ')
         print(result)
         print("score : ", t.score(test_Attribut, test_Varr))
+        self.assertLessEqual(result[0], 1)
