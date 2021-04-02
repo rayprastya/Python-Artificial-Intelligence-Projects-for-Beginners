@@ -304,6 +304,7 @@ class TestApp(unittest.TestCase):
         print('result : ')
         print(result)
         print("score : "+ str(t.score(testAttr, testVar)))
+
         
     def test_04_Nurhanifah_1184086(self):
         from Chapter02.Nurhanifah1184086 import preparation, training, testing
@@ -329,7 +330,6 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(df_test_att, df_test_label))
         oneresult = allresult[0]
         self.assertLessEqual(oneresult,1)
-        
         
     def test_03_FarisMuhammadIhsan_1184099(self):
         from Chapter02.FarisMuhammadIhsan1184099 import preparation, training, testing
@@ -365,3 +365,19 @@ class TestApp(unittest.TestCase):
         print(hasil)
         print("score : ", t.score(test_Attribut, test_Varr))
         self.assertLessEqual(hasil[0], 1)
+    
+    def test_03_EtikaKhusnulLaeli_1184065(self):
+        from Chapter02.Etika1184065 import preparation, training, testing
+
+        dataset = 'Chapter01/dataset/datatraining.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(dataset)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasiltesting = testing(clf, df_test_att.head())
+        # hasil
+        print('\nhasil testing etika : ')
+        print(hasiltesting)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        self.assertLessEqual(hasiltesting[0],1)
