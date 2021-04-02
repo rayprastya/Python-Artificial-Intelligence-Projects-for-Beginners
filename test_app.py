@@ -221,25 +221,3 @@ class TestApp(unittest.TestCase):
         print("hasil testing spam : ")
         print(hasil)
         self.assertLessEqual(hasil[0], 1)
-        
-    def test_05_SyabrienaPutriVeriane_1184099(self):
-        from Chapter01.SyabrienaPutri1184094 import preprocess, train, test
-        
-        #path ke dataset
-        dataset = 'Chapter01/dataset/heart_failure_clinical_records_dataset.csv'
-        
-        # testing function preparation
-        d_train_att, d_train_death, d_test_att, d_test_death, d_att, d_death = preprocess(dataset)
-        
-        #testing function training
-        t = train(d_train_att, d_train_death)
-        
-        #testing function testing
-        hasiltestingsemua = test(t, d_test_att)
-        
-        #hasil
-        print('\n hasil test Syabriena :')
-        print(hasiltestingsemua)
-        ambilsatuhasiltesting = hasiltestingsemua[0]
-        self.assertLessEqual(ambilsatuhasiltesting, 1)
-        
