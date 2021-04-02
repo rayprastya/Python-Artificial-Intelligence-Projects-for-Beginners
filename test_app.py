@@ -333,18 +333,13 @@ class TestApp(unittest.TestCase):
     def test_03_adityar_1184021(self):
         from Chapter02.adityar_1184021 import preparation, training, testing
         data = preparation()
-
         train = data.pop(0)
         test = data.pop(0)
-
         trainAttr = train.pop(0)
         trainLabel = train.pop(0)
-
         testAttr = test.pop(0)
         testLabel = test.pop(0)
-
         t = training(trainAttr, trainLabel)
-
         result = testing(t, testAttr)
         print('result : ')
         print(result)
