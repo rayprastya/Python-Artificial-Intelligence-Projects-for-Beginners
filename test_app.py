@@ -438,6 +438,28 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0],1)
+    
+    def test_03_rayhanprastya_1184069(self):
+        from Chapter02.rayhanprastya1184069 import preparation, training, testing
+        dataset = 'Chapter01/dataset/cardio.txt'
+        data = preparation(dataset)
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        trainatr = train.pop(0)
+        trainvar = train.pop(0)
+
+        testatr = test.pop(0)
+        testvar = test.pop(0)
+
+        a = training(trainatr, trainvar)
+        hasil = testing(a, testatr)
+
+        print('hasil test : ')
+        print(hasil)
+        print("score testing : ", a.score(testatr, testvar))
+        self.assertLessEqual(hasil[0],1)
 
     def test_03_MuhammadWahyuArdiIsmail_1184059(self):
         from Chapter02.mwahyu_1184059 import preparation, training, testing
@@ -458,4 +480,4 @@ class TestApp(unittest.TestCase):
         print('hasilnya : ')
         print(hasil_testingnya)
         print("score : ", t.score(testAttr, testVar))
-        self.assertLessEqual(hasiltest[0], 1)
+        self.assertLessEqual(hasil_testingnya[0], 1)
