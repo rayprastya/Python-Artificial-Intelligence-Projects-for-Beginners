@@ -346,4 +346,4 @@ class TestApp(unittest.TestCase):
         print(hasiltesting)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasiltesting[0],1)
-
+    
