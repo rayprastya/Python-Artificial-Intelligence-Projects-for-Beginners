@@ -240,7 +240,7 @@ class TestApp(unittest.TestCase):
         result = testing(t,d_test_att)
         print("Maka yang di approve adalah : ")
         print(result)
-        self.assertGreaterEqual(result[0],1)
+        self.assertGreaterEqual(result[0],0)
 
     def test_03_dindamajesty_1184011(self):
         from Chapter02.DindaMajesty1184011 import preparation, training, testing
@@ -403,6 +403,42 @@ class TestApp(unittest.TestCase):
         print("score : ", t.score(test_Atribut, test_Varr))
         self.assertLessEqual(hasiltest[0], 1)
 
+    def test_03_adityar_1184021(self):
+        from Chapter02.adityar_1184021 import preparation, training, testing
+        data = preparation()
+        train = data.pop(0)
+        test = data.pop(0)
+        trainAttr = train.pop(0)
+        trainLabel = train.pop(0)
+        testAttr = test.pop(0)
+        testLabel = test.pop(0)
+        t = training(trainAttr, trainLabel)
+        result = testing(t, testAttr)
+        print('result : ')
+        print(result)
+        print("Hasilnya Adalah : "+ str(t.score(testAttr, testLabel)))
+
+    def test_03_SitiNPujaKesuma_1184004(self):
+        from Chapter02.SitiNPujaKesuma1184004 import preparation, training, testing
+        info = preparation()
+
+        train = info.pop(0)
+        test = info.pop(0)
+
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+
+        t = training(trainAttr, trainVar)
+
+        result = testing(t, testAttr)
+        print('result : ')
+        print(result)
+        print("score : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0],1)
+
         def test_03_MuhammadWahyuArdiIsmail_1184059(self):
         from Chapter02.mwahyu_1184059 import preparation, training, testing
         data = preparation()
@@ -418,7 +454,8 @@ class TestApp(unittest.TestCase):
 
         t = training(trainAttr, trainVar)
 
-        result = testing(t, testAttr)
-        print('result : ')
-        print(result)
+        hasil_testnya = testing(t, testAttr)
+        print('hasilnya : ')
+        print(hasil_testnya)
         print("score : ", t.score(testAttr, testVar))
+        self.assertLessEqual(hasiltest[0], 1)
