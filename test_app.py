@@ -439,7 +439,7 @@ class TestApp(unittest.TestCase):
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0],1)
 
-        def test_03_MuhammadWahyuArdiIsmail_1184059(self):
+    def test_03_MuhammadWahyuArdiIsmail_1184059(self):
         from Chapter02.mwahyu_1184059 import preparation, training, testing
         data = preparation()
 
