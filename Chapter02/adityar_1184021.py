@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 def preparation():
-    data = pd.read_csv('../Chapter01/dataset/karyawan.txt', sep=',', usecols=[0,1,2,3,4,5], header=None, names=['umur','kendaraan','jarak','menikah','tempatTinggal','produktif'])
+    data = pd.read_csv('Chapter01/dataset/karyawan.txt', sep=',', usecols=[0,1,2,3,4,5], header=None, names=['umur','kendaraan','jarak','menikah','tempatTinggal','produktif'])
     data = data.sample(frac=1)
     data = [data.iloc[:,:5], data.iloc[:, 5:]]
 
