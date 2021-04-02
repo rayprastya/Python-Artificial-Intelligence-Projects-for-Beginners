@@ -240,7 +240,7 @@ class TestApp(unittest.TestCase):
         result = testing(t,d_test_att)
         print("Maka yang di approve adalah : ")
         print(result)
-        self.assertGreaterEqual(result[0],0)
+        self.assertGreaterEqual(result[0],1)
 
     def test_03_dindamajesty_1184011(self):
         from Chapter02.DindaMajesty1184011 import preparation, training, testing
@@ -402,21 +402,6 @@ class TestApp(unittest.TestCase):
         print(hasiltest)
         print("score : ", t.score(test_Atribut, test_Varr))
         self.assertLessEqual(hasiltest[0], 1)
-
-    def test_03_adityar_1184021(self):
-        from Chapter02.adityar_1184021 import preparation, training, testing
-        data = preparation()
-        train = data.pop(0)
-        test = data.pop(0)
-        trainAttr = train.pop(0)
-        trainLabel = train.pop(0)
-        testAttr = test.pop(0)
-        testLabel = test.pop(0)
-        t = training(trainAttr, trainLabel)
-        result = testing(t, testAttr)
-        print('result : ')
-        print(result)
-        print("Hasilnya Adalah : "+ str(t.score(testAttr, testLabel)
 
     def test_03_SitiNPujaKesuma_1184004(self):
         from Chapter02.SitiNPujaKesuma1184004 import preparation, training, testing
