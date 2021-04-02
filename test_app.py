@@ -324,6 +324,17 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing hanifah :', hasil)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasil[1], 1)
+    
+    def test_03_alifiaZahra_1184051(self):
+        from Chapter02.alifiaZahra1184051 import preparation, training, testing
+        datasetpath ='Chapter01/dataset/poker-hand2.txt'
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        clf = training(df_train_att, df_train_label)
+        allresult = testing(clf, df_test_att.head())
+        print('\n hasil testing : ', allresult)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        oneresult = allresult[0]
+        self.assertLessEqual(oneresult,1)
         
     def test_03_EtikaKhusnulLaeli_1184065(self):
         from Chapter02.Etika1184065 import preparation, training, testing
@@ -340,3 +351,4 @@ class TestApp(unittest.TestCase):
         print(hasiltesting)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasiltesting[0],1)
+
