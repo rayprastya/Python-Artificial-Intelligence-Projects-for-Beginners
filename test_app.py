@@ -318,6 +318,53 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing hanifah :', hasil)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasil[1], 1)
+    
+    def test_03_alifiaZahra_1184051(self):
+        from Chapter02.alifiaZahra1184051 import preparation, training, testing
+        datasetpath ='Chapter01/dataset/poker-hand2.txt'
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        clf = training(df_train_att, df_train_label)
+        allresult = testing(clf, df_test_att.head())
+        print('\n hasil testing : ', allresult)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        oneresult = allresult[0]
+        self.assertLessEqual(oneresult,1)
+        
+        
+    def test_03_FarisMuhammadIhsan_1184099(self):
+        from Chapter02.FarisMuhammadIhsan1184099 import preparation, training, testing
+        datasetpath = 'Chapter01/dataset/jamurclassf.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasil = testing(clf, df_test_att.head())
+        # hasil testing
+        print('\nhasil testing Faris :', hasil)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        self.assertLessEqual(hasil[0], 1)
+
+    def test_03_Rayhanyl_1184007(self):
+        from Chapter02.Rayhanyl1184007 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        train_Attribut = train.pop(0)
+        train_Varr = train.pop(0)
+
+        test_Attribut = test.pop(0)
+        test_Varr = test.pop(0)
+
+        t = training(train_Attribut, train_Varr)
+
+        hasil = testing(t, test_Attribut)
+        print('hasil : ')
+        print(hasil)
+        print("score : ", t.score(test_Attribut, test_Varr))
+        self.assertLessEqual(hasil[0], 1)
 
     def test_03_Anurutari_1184039(self):
         from Chapter02.Anurutari1184039 import preparation, training, testing
@@ -326,15 +373,16 @@ class TestApp(unittest.TestCase):
         train = data.pop(0)
         test = data.pop(0)
 
-        trainAttr = train.pop(0)
-        trainVar = train.pop(0)
+        trn_Atribut = train.pop(0)
+        trn_Varr = train.pop(0)
 
-        testAttr = test.pop(0)
-        testVar = test.pop(0)
+        test_Atribut = test.pop(0)
+        test_Varr = test.pop(0)
 
-        t = training(trainAttr, trainVar)
+        t = training(trn_Atribut, trn_Varr)
 
-        result = testing(t, testAttr)
-        print('result : ')
-        print(result)
-        print("score : ", t.score(testAttr, testVar))
+        hasil = testing(t, test_Atribut)
+        print('hasil : ')
+        print(hasil)
+        print("score : ", t.score(test_Atribut, test_Varr))
+        self.assertLessEqual(hasil[0], 1)
