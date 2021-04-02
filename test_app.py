@@ -330,7 +330,7 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(df_test_att, df_test_label))
         oneresult = allresult[0]
         self.assertLessEqual(oneresult,1)
-        
+    
     def test_03_EtikaKhusnulLaeli_1184065(self):
         from Chapter02.Etika1184065 import preparation, training, testing
 
