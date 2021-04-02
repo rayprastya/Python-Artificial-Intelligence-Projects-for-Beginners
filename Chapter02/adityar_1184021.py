@@ -21,7 +21,7 @@ def preparation():
 
     return [[trainAttr, trainLabel], [testAttr, testLabel]]
 
-def training(trainAttr, trainVar):
+def training(trainAttr, trainLabel):
     t = RandomForestClassifier(max_features=4, random_state=0, n_estimators=100)
     t = t.fit(trainAttr, trainLabel)
     return t
