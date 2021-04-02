@@ -2,30 +2,30 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
 def preparation():
-    data = pd.read_csv('Chapter01/dataset/heartfailur.txt', sep=',', usecols=[0,1,2,3,4,5,6,7,8], header=None, names=['age', 'sex', 'Cough', 'dyspnea', 'edema', 'Nausea', 'increasedheartrate', 'thinkingdisorder', 'heartfailur'])
+    dt = pd.read_csv('Chapter01/dataset/heartfailur.txt', sep=',', usecols=[0,1,2,3,4,5,6,7,8], header=None, names=['age', 'sex', 'Cough', 'dyspnea', 'edema', 'Nausea', 'increasedheartrate', 'thinkingdisorder', 'heartfailur'])
    
-    data = data.sample(frac=1)
-    data = [data.iloc[:,:8], data.iloc[:, 8:]]
+    dt = dt.sample(frac=1)
+    dt = [dt.iloc[:,:8], dt.iloc[:, 8:]]
 
 
-    data_attribut = data.pop(0)
-    data_varr = data.pop(0)
+    dt_atribut = dt.pop(0)
+    dt_varr = dt.pop(0)
     
 
-    length = int(len(data_varr)*0.75)
+    length = int(len(dt_varr)*0.75)
 
-    train_Varr = data_varr[:length]
-    train_attribut = data_attribut[:length]
+    trn_Varr = dt_varr[:length]
+    trn_atribut = dt_atribut[:length]
 
-    test_Varr = data_varr[length:]
-    test_attribut = data_attribut[length:]
+    test_Varr = dt_varr[length:]
+    test_atribut = dt_atribut[length:]
 
-    return [[train_attribut, train_Varr], [test_attribut, test_Varr]]
+    return [[trn_atribut, trn_Varr], [test_atribut, test_Varr]]
 
-def training(train_attribut, train_Varr):
+def training(trn_atribut, trn_Varr):
     t = RandomForestClassifier(max_features=4, random_state=0, n_estimators=100)
-    t = t.fit(train_attribut, train_Varr)
+    t = t.fit(trn_atribut, trn_Varr)
     return t
 
-def testing(t, test_attribut):
-    return t.predict(test_attribut)
+def testing(t, test_atribut):
+    return t.predict(test_atribut)
