@@ -345,6 +345,26 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasil[0], 1)
 
+    def test_03_Rayhanyl_1184007(self):
+        from Chapter02.Rayhanyl1184007 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        train_Attribut = train.pop(0)
+        train_Varr = train.pop(0)
+
+        test_Attribut = test.pop(0)
+        test_Varr = test.pop(0)
+
+        t = training(train_Attribut, train_Varr)
+
+        hasil = testing(t, test_Attribut)
+        print('hasil : ')
+        print(hasil)
+        print("score : ", t.score(test_Attribut, test_Varr))
+        self.assertLessEqual(hasil[0], 1)
 def test_03_SitiNPujaKesuma_1184004(self):
         from Chapter02.SitiNPujaKesuma1184004 import preparation, training, testing
         info = preparation()
