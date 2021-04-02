@@ -337,15 +337,15 @@ class TestApp(unittest.TestCase):
         train = data.pop(0)
         test = data.pop(0)
 
-        trainAttr = train.pop(0)
-        trainVar = train.pop(0)
+        train_Attribut = train.pop(0)
+        train_Varr = train.pop(0)
 
-        testAttr = test.pop(0)
-        testVar = test.pop(0)
+        test_Attribut = test.pop(0)
+        test_Varr = test.pop(0)
 
-        t = training(trainAttr, trainVar)
+        t = training(train_Attribut, train_Varr)
 
-        result = testing(t, testAttr)
+        result = testing(t, test_Attribut)
         print('result : ')
         print(result)
-        print("score : ", t.score(testAttr, testVar))
+        print("score : ", t.score(test_Attribut, test_Varr))
