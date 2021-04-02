@@ -330,6 +330,41 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(df_test_att, df_test_label))
         oneresult = allresult[0]
         self.assertLessEqual(oneresult,1)
+        
+    def test_03_FarisMuhammadIhsan_1184099(self):
+        from Chapter02.FarisMuhammadIhsan1184099 import preparation, training, testing
+        datasetpath = 'Chapter01/dataset/jamurclassf.txt'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label, df_att, df_label = preparation(datasetpath)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasil = testing(clf, df_test_att.head())
+        # hasil testing
+        print('\nhasil testing Faris :', hasil)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        self.assertLessEqual(hasil[0], 1)
+
+    def test_03_Rayhanyl_1184007(self):
+        from Chapter02.Rayhanyl1184007 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        train_Attribut = train.pop(0)
+        train_Varr = train.pop(0)
+
+        test_Attribut = test.pop(0)
+        test_Varr = test.pop(0)
+
+        t = training(train_Attribut, train_Varr)
+
+        hasil = testing(t, test_Attribut)
+        print('hasil : ')
+        print(hasil)
+        print("score : ", t.score(test_Attribut, test_Varr))
+        self.assertLessEqual(hasil[0], 1)
     
     def test_03_EtikaKhusnulLaeli_1184065(self):
         from Chapter02.Etika1184065 import preparation, training, testing
@@ -346,4 +381,3 @@ class TestApp(unittest.TestCase):
         print(hasiltesting)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasiltesting[0],1)
-    
