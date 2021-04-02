@@ -345,9 +345,9 @@ class TestApp(unittest.TestCase):
 
         t = training(train_Attribut, train_Varr)
 
-        result = testing(t, test_Attribut)
-        print('result : ')
-        print(result)
+        hasil_test = testing(t, test_Attribut)
+        print('hasil_test : ')
+        print(hasil_test)
         print("score : ", t.score(test_Attribut, test_Varr))
-        h_result = result[0]
+        h_result = hasil_test[0]
         self.assertLessEqual(h_result, 1)
