@@ -304,5 +304,3 @@ class TestApp(unittest.TestCase):
         print('result : ')
         print(result)
         print("score : "+ str(t.score(testAttr, testVar)))
-
-    
