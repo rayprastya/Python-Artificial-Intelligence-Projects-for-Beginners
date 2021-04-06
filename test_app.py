@@ -463,7 +463,7 @@ class TestApp(unittest.TestCase):
         self.assertLessEqual(hasil[0],1)
     
     def test_04_idamFadilah_1184063(self):
-        from Chapter02.IdamFadilah1184063 import preparation, training, testing
+        from Chapter03.idamFadilah1184063 import preparation, training, testing
         data = preparation()
 
         train = data.pop(0)
@@ -482,3 +482,5 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
 
+app = TestApp().test_04_idamFadilah_1184063()
+app
