@@ -30,8 +30,8 @@ def preparation(dataset):
     d_train = d_shuffle.iloc[:data]
     d_test = d_shuffle.iloc[data:]
 
-    d_train_att = vc.fit_transform(d_train['Brand'])
-    d_test_att = vc.transform(d_test['Brand'])
+    d_train_att = vc.fit_transform(d_train['Variety'])
+    d_test_att = vc.transform(d_test['Variety'])
 
     d_train_label = d_train['Recommended']
     d_test_label = d_test['Recommended']
