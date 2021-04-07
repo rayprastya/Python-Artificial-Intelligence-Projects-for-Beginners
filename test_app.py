@@ -548,3 +548,16 @@ class TestApp(unittest.TestCase):
         print(hasilvote)
         print(' IMDB:', clf.score(mv_test_att, mv_test_label))
         self.assertLessEqual(hasilvote[0],1)
+        
+    def test_05_Nurhanifah_1184086(self):
+        from Chapter03.Nurhanifah1184086 import preparation, training, testing
+        dataset = 'Chapter01/dataset/Food_Reviews.csv'
+        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
+        clf = training(d_train_att, d_train_label)
+        # testing function testing
+        hasil = testing(clf, d_test_att)
+        # hasil testing
+        print('\nhasil testing hanifah :', hasil)
+        print('Score:', clf.score(d_test_att, d_test_label))
+        self.assertLessEqual(hasil[0],1)
+        
