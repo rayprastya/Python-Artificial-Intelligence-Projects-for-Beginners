@@ -534,3 +534,17 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing Batris :', hasil)
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],2)
+        
+    def test_04_AhmadAgung_1184015(self):
+        from Chapter03.AhmadAgung_1184015 import preparation, training, testing
+        datasetmovie = 'Chapter01/dataset/movie_ratings.csv'
+        mv_train_att, mv_train_label, mv_test_att, mv_test_label = preparation(datasetmovie)
+        clf = training(mv_train_att, mv_train_label)
+        
+        hasilvote = testing(clf, mv_test_att)
+        
+        print(' 0 = rating film < 7')
+        print(' 1 = rating film > 7')
+        print(hasilvote)
+        print(' IMDB:', clf.score(mv_test_att, mv_test_label))
+        self.assertLessEqual(hasilvote[0],1)
