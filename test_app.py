@@ -522,3 +522,15 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0], 1)
+    
+    def test_04_DyningAida_1184030(self):
+        from Chapter03.DyningAida1184030 import preparation, training, testing
+        dataset = 'Chapter01/dataset/books-rating.csv'
+        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
+        clf = training(d_train_att, d_train_label)
+        # testing function testing
+        hasil = testing(clf, d_test_att)
+        # hasil testing
+        print('\nhasil testing Batris :', hasil)
+        print('Score:', clf.score(d_test_att, d_test_label))
+        self.assertLessEqual(hasil[0],2)
