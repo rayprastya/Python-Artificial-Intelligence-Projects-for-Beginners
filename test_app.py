@@ -633,16 +633,13 @@ class TestApp(unittest.TestCase):
         data = preparation()
         train = data.pop(0)
         test = data.pop(0)
-
         trainAttr = train.pop(0)
         trainVar = train.pop(0)
-
         testAttr = test.pop(0)
         testVar = test.pop(0)
-
         t = training(trainAttr, trainVar)
-
         result = testing(t, testAttr)
         print('Data testingnya : ')
         print(result)
         print("Hasilnya : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0],1)
