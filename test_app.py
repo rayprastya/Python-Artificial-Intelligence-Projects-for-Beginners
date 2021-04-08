@@ -549,6 +549,20 @@ class TestApp(unittest.TestCase):
         print(' IMDB:', clf.score(mv_test_att, mv_test_label))
         self.assertLessEqual(hasilvote[0],1)
 
+
+    def test_04_DindaMajesty_1184011(self):
+        from Chapter03.DindaMajesty1184011 import preparation, training, testing
+        dataset = 'Chapter01/dataset/ramen-ratings.csv'
+        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
+        clf = training(d_train_att, d_train_label)
+        # testing function testing
+        hasil = testing(clf, d_test_att)
+        # hasil testing
+        print('3: Very Recommended, 2: Recommended, 1: Less Recommended, 0: Not Recommended')
+        print('\nTesting Dinda :', hasil)
+        print('Score:', clf.score(d_test_att, d_test_label))
+        self.assertLessEqual(hasil[0],3)
+
     def test_04_Anurutari_1184039(self):
         from Chapter03.Anurutari1184039 import preparation, training, testing
         data = preparation()
@@ -569,3 +583,4 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0], 1)
+
