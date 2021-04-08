@@ -647,4 +647,4 @@ class TestApp(unittest.TestCase):
     def test_04_TriAnggaDioSimamora_1184047(self):
         from Chapter03.TriAnggaDio_1184047 import running_chapter_3
         result = running_chapter_3()
-        self.assertLessEqual(result[0], 1)
+        self.assertLessEqual(result, 1)
