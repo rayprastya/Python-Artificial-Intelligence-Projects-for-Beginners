@@ -643,3 +643,8 @@ class TestApp(unittest.TestCase):
         print(result)
         print("Hasilnya : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0],1)
+
+    def test_04_TriAnggaDioSimamora_1184047(self):
+        from Chapter03.TriAnggaDio_1184047 import running_chapter_3
+        result = running_chapter_3()
+        self.assertLessEqual(result, 1)
