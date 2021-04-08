@@ -648,3 +648,17 @@ class TestApp(unittest.TestCase):
         from Chapter03.TriAnggaDio_1184047 import running_chapter_3
         result = running_chapter_3()
         self.assertLessEqual(result, 1)
+
+    def test_04_SyabrienaPutriVeriane_1184094(self):
+        from Chapter03.SyabrienaPutriVeriane1184094 import preparation, training, testing
+        datasetpath = 'Chapter01/dataset/SnapchatReview.csv'
+        # testing function preparation
+        df_train_att, df_train_label, df_test_att, df_test_label = preparation(datasetpath)
+        # testing function training
+        clf = training(df_train_att, df_train_label)
+        # testing function testing
+        hasil = testing(clf, df_test_att)
+        # hasil testing
+        print('\nhasil testing Syabriena :', hasil)
+        print('Score:', clf.score(df_test_att, df_test_label))
+        self.assertLessEqual(hasil[1], 1)
