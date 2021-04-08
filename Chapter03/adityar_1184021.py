@@ -3,13 +3,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer
 
 def preparation():
-    c = pd.read_csv('Chapter01/dataset/Restaurant.csv')
+    v = pd.read_csv('Chapter01/dataset/Clothing_Reviews.csv')
     vc = CountVectorizer()
     arr = []
-    c['suka'] = c.apply(lambda row: 1 if row['Liked'] >=1 else 0, axis=1)
-    c = c.sample(frac=1)
-    c = [c[:int(len(c)*0.75)], c[int(len(c)*0.75):]]
-    data = [[vc.fit_transform(c[0]['Review']),c[0]['suka']],[vc.transform(c[1]['Review']),c[1]['suka']]]
+    v['point'] = v.apply(lambda row: 1 if row['Rating'] >=3 else 0, axis=1)
+    v = v.sample(frac=1)
+    v = [v[:int(len(v)*0.75)], v[int(len(v)*0.75):]]
+    data = [[vc.fit_transform(v[0]['Review Text']),v[0]['point']],[vc.transform(v[1]['Review Text']),v[1]['point']]]
     return data
 
 def training(trainAttr, trainVar):
@@ -19,4 +19,3 @@ def training(trainAttr, trainVar):
 
 def testing(t, testAttr):
     return t.predict(testAttr)
-
