@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer
 
 def preparation():
-    d = pd.read_csv('../Chapter01/dataset/anime.csv')
+    d = pd.read_csv('Chapter01/dataset/anime.csv')
     vc = CountVectorizer()
     arr = []
     d['res'] = d.apply(lambda row: 1 if row['Score'] >= 6 else 0, axis=1)
