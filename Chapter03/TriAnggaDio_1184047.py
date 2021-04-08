@@ -11,11 +11,6 @@ def running_chapter_3(filename='Chapter01/dataset/indonesian_hate_speech.csv'):
     df = pandas.read_csv(filename)
 
     vectorizer = CountVectorizer()
-    dvec = vectorizer.fit_transform(df['Tweet'])
-    print(f'\nVectorize Fit and Transform: {dvec}')
-
-    hate_speech = vectorizer.get_feature_names()
-    print(f'Feature Names Hate Speech: {hate_speech}')
 
     df_shuffle = df.sample(frac=1)
 

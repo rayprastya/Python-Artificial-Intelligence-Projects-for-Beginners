@@ -628,6 +628,22 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],1)
 
+    def test_04_adityar_1184021(self):
+        from Chapter03.adityar_1184021 import preparation, training, testing
+        data = preparation()
+        train = data.pop(0)
+        test = data.pop(0)
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+        t = training(trainAttr, trainVar)
+        result = testing(t, testAttr)
+        print('Data testingnya : ')
+        print(result)
+        print("Hasilnya : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0],1)
+
     def test_04_TriAnggaDioSimamora_1184047(self):
         from Chapter03.TriAnggaDio_1184047 import running_chapter_3
         result = running_chapter_3()
