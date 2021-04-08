@@ -548,3 +548,24 @@ class TestApp(unittest.TestCase):
         print(hasilvote)
         print(' IMDB:', clf.score(mv_test_att, mv_test_label))
         self.assertLessEqual(hasilvote[0],1)
+
+    def test_04_Anurutari_1184039(self):
+        from Chapter03.Anurutari1184039 import preparation, training, testing
+        data = preparation()
+
+        train = data.pop(0)
+        test = data.pop(0)
+
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+
+        t = training(trainAttr, trainVar)
+
+        result = testing(t, testAttr)
+        print('result : ')
+        print(result)
+        print("score : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0], 1)
