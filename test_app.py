@@ -615,3 +615,16 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing hanifah :', hasil)
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],1)
+    
+    def test_04_EtikaKhusnulLaeli_1184065(self):
+        from Chapter03.EtikaKhusnul1184065 import preparation, training, testing
+        dataset = 'Chapter01/dataset/OnlineNewsPopularity.csv'
+        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
+        clf = training(d_train_att, d_train_label)
+        # testing function testing
+        hasil = testing(clf, d_test_att)
+        # hasil testing
+        print('\nhasil testing Etika :', hasil)
+        print('Score:', clf.score(d_test_att, d_test_label))
+        self.assertLessEqual(hasil[0],1)
+
