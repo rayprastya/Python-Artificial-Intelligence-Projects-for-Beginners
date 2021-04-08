@@ -582,6 +582,7 @@ class TestApp(unittest.TestCase):
         print('\nTesting Dinda :', hasil)
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],3)
+
         
     def test_05_Nurhanifah_1184086(self):
         from Chapter03.Nurhanifah1184086 import preparation, training, testing
@@ -594,4 +595,27 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing hanifah :', hasil)
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],1)
+
+
+
+    def test_04_SitiNPujaKesuma_1184004(self):
+        from Chapter03.SitiNPujaKesuma1184004 import preparation, training, testing
+        baca = preparation()
+
+        train = baca.pop(0)
+        test = baca.pop(0)
+
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+
+        t = training(trainAttr, trainVar)
+
+        result = testing(t, testAttr)
+        print('result : ')
+        print(result)
+        print("score : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0], 1)
 
