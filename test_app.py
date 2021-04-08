@@ -583,21 +583,6 @@ class TestApp(unittest.TestCase):
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(hasil[0],3)
 
-        
-    def test_05_Nurhanifah_1184086(self):
-        from Chapter03.Nurhanifah1184086 import preparation, training, testing
-        dataset = 'Chapter01/dataset/Food_Reviews.csv'
-        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
-        clf = training(d_train_att, d_train_label)
-        # testing function testing
-        hasil = testing(clf, d_test_att)
-        # hasil testing
-        print('\nhasil testing hanifah :', hasil)
-        print('Score:', clf.score(d_test_att, d_test_label))
-        self.assertLessEqual(hasil[0],1)
-
-
-
     def test_04_SitiNPujaKesuma_1184004(self):
         from Chapter03.SitiNPujaKesuma1184004 import preparation, training, testing
         baca = preparation()
@@ -618,4 +603,15 @@ class TestApp(unittest.TestCase):
         print(result)
         print("score : ",t.score(testAttr, testVar))
         self.assertLessEqual(result[0], 1)
-
+        
+    def test_05_Nurhanifah_1184086(self):
+        from Chapter03.Nurhanifah1184086 import preparation, training, testing
+        dataset = 'Chapter01/dataset/Food_Reviews.csv'
+        d_train_att, d_train_label, d_test_att, d_test_label = preparation(dataset)
+        clf = training(d_train_att, d_train_label)
+        # testing function testing
+        hasil = testing(clf, d_test_att)
+        # hasil testing
+        print('\nhasil testing hanifah :', hasil)
+        print('Score:', clf.score(d_test_att, d_test_label))
+        self.assertLessEqual(hasil[0],1)
