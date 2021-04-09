@@ -689,18 +689,3 @@ class TestApp(unittest.TestCase):
         print('\n hasil testing : ', allresult)
         print('Score:', clf.score(d_test_att, d_test_label))
         self.assertLessEqual(allresult[0],1)
-
-
-    def test_04_FarisMuhammadIhsan_1184099(self):
-        from Chapter03.FarisMuhammadIhsan1184099 import preparation, training, testing
-        datasetpath = 'Chapter01/dataset/openlapak.csv'
-        # testing function preparation
-        df_train_att, df_train_label, df_test_att, df_test_label = preparation(datasetpath)
-        # testing function training
-        clf = training(df_train_att, df_train_label)
-        # testing function testing
-        hasil = testing(clf, df_test_att)
-        # hasil testing
-        print('\nhasil testing:', hasil)
-        print('Score:', clf.score(df_test_att, df_test_label))
-        self.assertLessEqual(hasil[1], 1)
