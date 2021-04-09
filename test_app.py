@@ -662,3 +662,19 @@ class TestApp(unittest.TestCase):
         print('\nhasil testing Syabriena :', hasil)
         print('Score:', clf.score(df_test_att, df_test_label))
         self.assertLessEqual(hasil[1], 1)
+        
+    def test_04_sharif_1184044(self):
+        from Chapter03.sharif_1184044 import preparation, training, testing
+        data = preparation()
+        train = data.pop(0)
+        test = data.pop(0)
+        trainAttr = train.pop(0)
+        trainVar = train.pop(0)
+        testAttr = test.pop(0)
+        testVar = test.pop(0)
+        t = training(trainAttr, trainVar)
+        result = testing(t, testAttr)
+        print('Data testingnya : ')
+        print(result)
+        print("Hasilnya : ",t.score(testAttr, testVar))
+        self.assertLessEqual(result[0],1)
